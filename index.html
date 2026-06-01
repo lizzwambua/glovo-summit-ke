@@ -574,15 +574,6 @@ tr:hover .del-btn { opacity: 1; }
   to { transform: scaleX(1); }
 }
 
-.intro-progress-track {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 3px; background: rgba(255,255,255,0.06);
-}
-.intro-progress-fill {
-  height: 100%; width: 0%;
-  background: var(--yellow);
-  transition: width linear;
-}
 
 @keyframes introUp {
   from { opacity: 0; transform: translateY(18px); }
@@ -623,10 +614,6 @@ tr:hover .del-btn { opacity: 1; }
       <span class="btn-pin">📍</span> Open Dashboard
     </button>
 
-  </div>
-
-  <div class="intro-progress-track">
-    <div class="intro-progress-fill" id="intro-bar"></div>
   </div>
 </div>
 
@@ -1387,15 +1374,12 @@ function dismissIntro() {
 
 (function() {
   const bar = document.getElementById('intro-bar');
-  // Double rAF to ensure browser has painted before starting
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       bar.style.transition = 'width ' + INTRO_DURATION + 'ms linear';
       bar.style.width = '100%';
     });
   });
-  // Auto-dismiss after duration
-  setTimeout(dismissIntro, INTRO_DURATION);
 })();
 
 // ════════════════════════════
