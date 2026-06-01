@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Glovo Future of Commerce Summit — Kenya 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+/*
+  GLOVO BRAND PALETTE (official — from Icons & Pictures PDF):
+    Yellow  #F2CC38  (primary)
+    Teal    #00A082  (secondary)
+    Black   #161717  (neutral)
+
+  All other colours derived ONLY from these three:
+    Yellow tints:  #FDF8DC  #F9EFA0  #F5E068  #C4A200  #8A6E00
+    Teal tints:    #E0F5F0  #A8DDD5  #007A63  #005C4A
+    Black tints:   #2C2C2C  #555555  #888888  #BBBBBB  #E8E8E8  #F6F6F6
+    Error red:     #B71C1C  #FDECEA  (only for blocked/error states)
+*/
+
+:root {
+  /* Core brand */
+  --yellow:       #F2CC38;
+  --yellow-mid:   #F5E068;
+  --yellow-light: #FDF8DC;
+  --yellow-dark:  #C4A200;
+  --yellow-text:  #8A6E00;
+
+  --teal:         #00A082;
+  --teal-light:   #E0F5F0;
+  --teal-mid:     #A8DDD5;
+  --teal-dark:    #007A63;
+
+  --black:        #161717;
+  --gray-1:       #2C2C2C;
+  --gray-2:       #555555;
+  --gray-3:       #888888;
+  --gray-4:       #BBBBBB;
+  --gray-5:       #E8E8E8;
+  --gray-bg:      #F6F6F6;
+  --white:        #FFFFFF;
+
+  /* Error only */
+  --error:        #B71C1C;
+  --error-light:  #FDECEA;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--gray-bg);
+  color: var(--black);
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  font-size: 13px;
+}
+
+/* ════════════════════════════════
+   SIDEBAR
+════════════════════════════════ */
+.sidebar {
+  position: fixed; top: 0; left: 0;
+  width: 232px; height: 100vh;
+  background: var(--black);
+  display: flex; flex-direction: column;
+  z-index: 100; overflow: hidden;
+}
+
+
+
+.sidebar-logo {
+  padding: 20px 20px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* CORRECT GLOVO LOGO: "Glovo" text in teal + yellow pin SVG */
+.glovo-wordmark {
+  display: flex; align-items: center; gap: 2px;
+  margin-bottom: 10px;
+}
+.glovo-wordmark svg { width: 108px; height: 36px; }
+
+.kenya-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px; padding: 4px 12px;
+  margin-top: 10px;
+  font-size: 11px; font-weight: 700;
+  color: rgba(255,255,255,0.45);
+}
+.ke-initials {
+  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.55);
+  font-size: 10px; font-weight: 800;
+  padding: 2px 6px; border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+.sidebar-subtitle {
+  font-size: 10px; font-weight: 700;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase; letter-spacing: 1px;
+  line-height: 1.6;
+}
+
+
+
+.sidebar-nav { padding: 14px 12px; flex: 1; overflow-y: auto; }
+.nav-label {
+  font-size: 9px; font-weight: 800;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  padding: 0 10px; margin: 14px 0 4px;
+}
+.nav-label:first-child { margin-top: 0; }
+.nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 10px; border-radius: 10px;
+  cursor: pointer; font-size: 12px; font-weight: 700;
+  color: rgba(255,255,255,0.45);
+  transition: all 0.15s;
+  border: none; background: none; width: 100%; text-align: left;
+  font-family: 'Montserrat', sans-serif;
+}
+.nav-item:hover { background: rgba(255,255,255,0.06); color: var(--white); }
+.nav-item.active { background: var(--yellow); color: var(--black); }
+.nav-item .icon { font-size: 16px; width: 20px; text-align: center; flex-shrink: 0; }
+.nav-badge {
+  margin-left: auto;
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.5);
+  font-size: 10px; font-weight: 800;
+  padding: 1px 7px; border-radius: 20px;
+}
+.nav-item.active .nav-badge { background: rgba(22,23,23,0.2); color: var(--black); }
+
+.sidebar-footer {
+  padding: 14px 16px 18px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.countdown-box {
+  background: var(--yellow);
+  border-radius: 12px; padding: 14px;
+  text-align: center; margin-bottom: 10px;
+}
+.countdown-box .days {
+  font-size: 36px; font-weight: 900;
+  color: var(--black); line-height: 1;
+}
+.countdown-box .clabel {
+  font-size: 9px; font-weight: 800;
+  color: var(--gray-1); letter-spacing: 1px;
+  text-transform: uppercase; margin-top: 3px;
+}
+.date-row {
+  display: flex; align-items: center; gap: 6px;
+}
+.date-row label { font-size: 10px; color: rgba(255,255,255,0.35); font-weight: 700; }
+.date-input {
+  flex: 1; background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--white); padding: 5px 8px;
+  border-radius: 7px; font-size: 11px; font-weight: 600;
+  font-family: 'Montserrat', sans-serif; outline: none;
+}
+.date-input:focus { border-color: var(--yellow); }
+
+/* ════════════════════════════════
+   MAIN
+════════════════════════════════ */
+.main { margin-left: 232px; padding: 26px 30px; min-height: 100vh; }
+.page { display: none; }
+.page.active { display: block; animation: fadeUp .22s ease; }
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(8px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* ── PAGE HEADER ── */
+.page-header {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; margin-bottom: 22px;
+}
+.page-header h1 { font-size: 22px; font-weight: 900; }
+.page-header p { color: var(--gray-2); font-size: 12px; margin-top: 3px; font-weight: 600; }
+
+
+
+/* ── STAT CARDS ── */
+.stats-row {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 12px; margin-bottom: 16px;
+}
+.stat-card {
+  background: var(--white); border-radius: 14px;
+  padding: 16px 18px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  position: relative; overflow: hidden;
+  border-top: 4px solid var(--gray-5);
+}
+.stat-card.c-yellow { border-top-color: var(--yellow); }
+.stat-card.c-teal   { border-top-color: var(--teal); }
+.stat-card.c-black  { border-top-color: var(--black); }
+.stat-card.c-error  { border-top-color: var(--error); }
+
+.stat-card .s-icon { font-size: 20px; margin-bottom: 8px; display: block; }
+.stat-card .slabel { font-size: 9px; font-weight: 800; color: var(--gray-3); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 5px; }
+.stat-card .sval { font-size: 28px; font-weight: 900; line-height: 1; }
+.stat-card.c-yellow .sval { color: var(--yellow-text); }
+.stat-card.c-teal   .sval { color: var(--teal-dark); }
+.stat-card.c-black  .sval { color: var(--black); }
+.stat-card.c-error  .sval { color: var(--error); }
+.stat-card .ssub { font-size: 11px; color: var(--gray-3); margin-top: 4px; font-weight: 600; }
+
+.progress-bar { background: var(--gray-5); border-radius: 3px; height: 4px; margin-top: 10px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 3px; transition: width .6s ease; }
+
+/* ── CARDS ── */
+.card { background: var(--white); border-radius: 14px; padding: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.card-title { font-size: 10px; font-weight: 800; color: var(--gray-3); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 12px; }
+
+.overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+
+/* ── TASK MINI ── */
+.task-mini { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--gray-5); }
+.task-mini:last-child { border-bottom: none; }
+.task-mini .tmn { font-size: 12px; flex: 1; font-weight: 600; }
+.task-mini .tmo { font-size: 10px; color: var(--gray-3); font-weight: 600; }
+
+/* ── STATUS BADGES ── */
+.sbadge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 9px; border-radius: 20px;
+  font-size: 10px; font-weight: 700; white-space: nowrap;
+  text-transform: uppercase; letter-spacing: 0.4px; flex-shrink: 0;
+}
+.sbadge .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.s-done  { background: var(--teal-light);   color: var(--teal-dark); }
+.s-prog  { background: var(--yellow-light); color: var(--yellow-text); }
+.s-none  { background: var(--gray-5);       color: var(--gray-3); }
+.s-block { background: var(--error-light);  color: var(--error); }
+
+/* ── CATEGORY TAGS ── */
+/* ALL derived from yellow/teal/black tints only */
+.cat-tag {
+  display: inline-block; padding: 2px 8px;
+  border-radius: 5px; font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.4px;
+}
+.cat-Planning       { background: var(--teal-light);   color: var(--teal-dark); }
+.cat-Logistics      { background: var(--yellow-light); color: var(--yellow-text); }
+.cat-Content        { background: var(--teal-light);   color: var(--teal-dark); }
+.cat-Communications { background: var(--yellow-light); color: var(--yellow-text); }
+.cat-Marketing      { background: var(--yellow-light); color: var(--yellow-text); }
+.cat-Sponsorship    { background: var(--yellow-light); color: var(--yellow-text); }
+.cat-Finance        { background: var(--teal-light);   color: var(--teal-dark); }
+.cat-Tech           { background: var(--teal-light);   color: var(--teal-dark); }
+.cat-Other          { background: var(--gray-5);       color: var(--gray-2); }
+
+/* ── TABLE ── */
+.table-wrap { background: var(--white); border-radius: 14px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+thead th {
+  background: var(--black); color: rgba(255,255,255,0.6);
+  padding: 10px 14px; text-align: left;
+  font-size: 9px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+}
+tbody tr { border-top: 1px solid var(--gray-5); transition: background .1s; cursor: pointer; }
+tbody tr:hover { background: var(--gray-bg); }
+td { padding: 10px 14px; font-size: 12px; vertical-align: middle; }
+.td-task { font-weight: 700; max-width: 260px; }
+.td-det { font-size: 11px; color: var(--gray-3); margin-top: 2px; font-weight: 500; }
+.td-own { color: var(--gray-3); font-size: 11px; font-weight: 600; }
+.td-eta { font-size: 11px; font-weight: 700; color: var(--gray-2); }
+.overdue { color: var(--error) !important; }
+
+/* ── INLINE SELECT ── */
+.isel {
+  border: none; cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700;
+  border-radius: 20px; padding: 3px 9px;
+  outline: none; text-transform: uppercase; letter-spacing: 0.4px;
+  -webkit-appearance: none;
+}
+.isel.s-done  { background: var(--teal-light);   color: var(--teal-dark); }
+.isel.s-prog  { background: var(--yellow-light); color: var(--yellow-text); }
+.isel.s-none  { background: var(--gray-5);       color: var(--gray-3); }
+.isel.s-block { background: var(--error-light);  color: var(--error); }
+
+/* ── FILTERS ── */
+.filters { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; align-items: center; }
+.fbtn {
+  padding: 5px 13px; border-radius: 20px;
+  border: 1.5px solid var(--gray-5);
+  background: var(--white); color: var(--gray-3);
+  font-size: 10px; font-weight: 800; cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: all .15s; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.fbtn:hover { border-color: var(--teal); color: var(--teal-dark); }
+.fbtn.active { background: var(--black); border-color: var(--black); color: var(--yellow); }
+.search-inp {
+  margin-left: auto; background: var(--white);
+  border: 1.5px solid var(--gray-5); color: var(--black);
+  padding: 6px 13px; border-radius: 8px;
+  font-size: 11px; font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  width: 190px; outline: none; transition: border-color .2s;
+}
+.search-inp:focus { border-color: var(--teal); }
+.search-inp::placeholder { color: var(--gray-4); font-weight: 500; }
+
+/* ── ADD FORM ── */
+.add-form {
+  background: var(--white); border-radius: 14px;
+  padding: 18px; margin-bottom: 14px;
+  display: none; border: 2px solid var(--yellow);
+}
+.add-form.open { display: block; animation: fadeUp .2s ease; }
+.fgrid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.fg { display: flex; flex-direction: column; gap: 4px; }
+.fg label { font-size: 9px; font-weight: 800; color: var(--gray-3); text-transform: uppercase; letter-spacing: 0.8px; }
+.fg input, .fg select, .fg textarea {
+  background: var(--gray-bg); border: 1.5px solid var(--gray-5);
+  color: var(--black); padding: 7px 11px; border-radius: 7px;
+  font-size: 12px; font-weight: 600;
+  font-family: 'Montserrat', sans-serif; outline: none; transition: border-color .2s;
+}
+.fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--teal); }
+.fg textarea { resize: vertical; min-height: 55px; }
+.form-actions { display: flex; gap: 7px; margin-top: 12px; }
+
+/* ── BUTTONS ── */
+.btn {
+  padding: 8px 18px; border-radius: 8px;
+  font-size: 11px; font-weight: 800; cursor: pointer; border: none;
+  font-family: 'Montserrat', sans-serif; transition: all .15s;
+  display: inline-flex; align-items: center; gap: 5px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.btn-yellow { background: var(--yellow); color: var(--black); }
+.btn-yellow:hover { background: var(--yellow-mid); }
+.btn-teal   { background: var(--teal); color: var(--white); }
+.btn-teal:hover { background: var(--teal-dark); }
+.btn-gray   { background: var(--gray-5); color: var(--black); }
+.btn-gray:hover { background: #DCDCDC; }
+.btn-error  { background: var(--error-light); color: var(--error); border: 1px solid #F5B8B8; }
+.btn-error:hover { background: #F5B8B8; }
+.btn-sm { padding: 5px 11px; font-size: 10px; }
+
+/* ── MODAL ── */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(22,23,23,0.65);
+  backdrop-filter: blur(3px); z-index: 1000;
+  display: none; align-items: center; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--white); border-radius: 18px;
+  padding: 26px; width: 560px; max-width: 95vw;
+  max-height: 90vh; overflow-y: auto;
+  animation: fadeUp .2s ease;
+  border-top: 5px solid var(--teal);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+.modal h3 { font-size: 16px; font-weight: 900; margin-bottom: 18px; }
+.modal-footer { display: flex; justify-content: flex-end; gap: 7px; margin-top: 18px; }
+
+/* ── DELETE BTN ── */
+.del-btn {
+  opacity: 0; background: none; border: none;
+  color: var(--error); cursor: pointer; font-size: 12px;
+  padding: 3px 7px; border-radius: 5px; transition: all .15s; font-weight: 700;
+}
+tr:hover .del-btn { opacity: 1; }
+.del-btn:hover { background: var(--error-light); }
+
+/* ── BUDGET SECTION ── */
+.budget-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+.bchart { background: var(--white); border-radius: 14px; padding: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.bchart h3 { font-size: 10px; font-weight: 800; color: var(--gray-3); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 14px; }
+
+.bar-chart { display: flex; flex-direction: column; gap: 9px; }
+.brow-head { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 4px; }
+.brow-head .bcat { color: var(--gray-3); font-weight: 600; }
+.brow-head .bval { font-weight: 800; color: var(--black); }
+.bar-track { background: var(--gray-5); border-radius: 3px; height: 7px; overflow: hidden; }
+.bar-fill  { height: 100%; border-radius: 3px; }
+
+.donut-wrap { position: relative; display: flex; justify-content: center; align-items: center; height: 170px; }
+.donut-center { position: absolute; text-align: center; }
+.donut-center .da { font-size: 17px; font-weight: 900; color: var(--black); }
+.donut-center .dl { font-size: 9px; color: var(--gray-3); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+.legend { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.leg-item { display: flex; align-items: center; }
+.leg-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-right: 7px; }
+.leg-name { font-size: 11px; font-weight: 600; flex: 1; }
+.leg-val  { font-size: 11px; font-weight: 800; }
+
+/* ── TOAST ── */
+.toast {
+  position: fixed; bottom: 22px; right: 22px;
+  background: var(--black); color: var(--white);
+  padding: 11px 18px; border-radius: 10px;
+  font-size: 12px; font-weight: 700; z-index: 9999;
+  transform: translateY(60px); opacity: 0;
+  transition: all .3s ease;
+  border-left: 4px solid var(--teal);
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+
+/* ── EMPTY STATE ── */
+.empty { text-align: center; padding: 50px 20px; color: var(--gray-3); }
+.empty .ei { font-size: 36px; margin-bottom: 10px; }
+.empty p { font-size: 13px; font-weight: 700; }
+
+@media (max-width: 1100px) {
+  .stats-row { grid-template-columns: repeat(2,1fr); }
+  .budget-grid, .overview-grid { grid-template-columns: 1fr; }
+  .fgrid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════
+     SIDEBAR
+═══════════════════════════ -->
+<nav class="sidebar">
+  <div class="sidebar-logo">
+    <!-- CORRECT GLOVO LOGO: Montserrat text in teal + yellow location pin -->
+    <div class="glovo-wordmark">
+      <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- "Glovo" text in teal -->
+        <text x="0" y="30" font-family="Montserrat,sans-serif" font-weight="800" font-size="28" fill="#00A082">Glovo</text>
+        <!-- Yellow location pin -->
+        <g transform="translate(96, 2)">
+          <path d="M11 0C6.04 0 2 4.04 2 9c0 6.3 9 16 9 16s9-9.7 9-16C20 4.04 15.96 0 11 0z" fill="#F2CC38"/>
+          <circle cx="11" cy="9" r="3.5" fill="#161717"/>
+          <circle cx="11" cy="27" r="1.8" fill="#F2CC38" opacity="0.5"/>
+        </g>
+      </svg>
+    </div>
+    <div class="sidebar-subtitle">Future of Commerce<br/>Summit · 2026</div>
+    <div class="kenya-badge">
+      <span class="ke-initials">KE</span>
+      Kenya Edition
+    </div>
+  </div>
+
+  <div class="sidebar-nav">
+    <div class="nav-label">Overview</div>
+    <button class="nav-item active" onclick="showPage('overview')">
+      <span class="icon">🏠</span> Overview
+    </button>
+    <div class="nav-label">Planning</div>
+    <button class="nav-item" onclick="showPage('tasks')">
+      <span class="icon">✅</span> Action Plan
+      <span class="nav-badge" id="badge-tasks">—</span>
+    </button>
+    <button class="nav-item" onclick="showPage('budget')">
+      <span class="icon">💰</span> Budget
+      <span class="nav-badge" id="badge-budget">—</span>
+    </button>
+  </div>
+
+  <div class="sidebar-footer">
+    <div class="countdown-box">
+      <div class="days" id="countdown-days">—</div>
+      <div class="clabel">days to event</div>
+    </div>
+    <div class="date-row">
+      <label>📅</label>
+      <input type="date" class="date-input" id="event-date" onchange="saveDate(this.value)"/>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════
+     MAIN
+═══════════════════════════ -->
+<main class="main">
+
+  <!-- ── OVERVIEW ── -->
+  <div class="page active" id="page-overview">
+    <div class="page-header">
+      <div>
+        <h1>Summit Dashboard</h1>
+        <p>Glovo Future of Commerce Summit · Kenya 2026 · Nairobi</p>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card c-yellow">
+        <span class="s-icon">📋</span>
+        <div class="slabel">Total Tasks</div>
+        <div class="sval" id="ov-total">—</div>
+        <div class="ssub" id="ov-sub">—% complete</div>
+        <div class="progress-bar"><div class="progress-fill" id="ov-prog" style="background:var(--yellow)"></div></div>
+      </div>
+      <div class="stat-card c-teal">
+        <span class="s-icon">✅</span>
+        <div class="slabel">Completed</div>
+        <div class="sval" id="ov-done">—</div>
+        <div class="ssub">tasks done</div>
+      </div>
+      <div class="stat-card c-black">
+        <span class="s-icon">⚡</span>
+        <div class="slabel">In Progress</div>
+        <div class="sval" id="ov-prog-n">—</div>
+        <div class="ssub">active now</div>
+      </div>
+      <div class="stat-card c-error">
+        <span class="s-icon">🚧</span>
+        <div class="slabel">Blocked</div>
+        <div class="sval" id="ov-blocked">—</div>
+        <div class="ssub">need attention</div>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card c-teal">
+        <span class="s-icon">💼</span>
+        <div class="slabel">Total Budget</div>
+        <div class="sval" id="ov-bud-total">—</div>
+        <div class="ssub">KES estimated</div>
+      </div>
+      <div class="stat-card c-yellow">
+        <span class="s-icon">💸</span>
+        <div class="slabel">Actual Spent</div>
+        <div class="sval" id="ov-bud-spent">—</div>
+        <div class="ssub" id="ov-bud-pct">—% of budget</div>
+        <div class="progress-bar"><div class="progress-fill" id="ov-spend-bar" style="background:var(--teal)"></div></div>
+      </div>
+      <div class="stat-card c-teal">
+        <span class="s-icon">🏦</span>
+        <div class="slabel">Remaining</div>
+        <div class="sval" id="ov-bud-rem">—</div>
+        <div class="ssub">KES unspent</div>
+      </div>
+      <div class="stat-card c-black">
+        <span class="s-icon">📋</span>
+        <div class="slabel">Not Started</div>
+        <div class="sval" id="ov-ns">—</div>
+        <div class="ssub">pending kickoff</div>
+      </div>
+    </div>
+
+    <div class="overview-grid">
+      <div class="card">
+        <div class="card-title">⚡ In Progress</div>
+        <div id="list-prog"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">📋 Not Started</div>
+        <div id="list-ns"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">✅ Completed</div>
+        <div id="list-done"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">🚧 Blocked</div>
+        <div id="list-block"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ACTION PLAN ── -->
+  <div class="page" id="page-tasks">
+    <div class="page-header">
+      <div>
+        <h1>Action Plan 📋</h1>
+        <p>All tasks, owners and deadlines across every workstream</p>
+      </div>
+      <button class="btn btn-yellow" onclick="toggleAddTask()">＋ Add Task</button>
+    </div>
+
+    <div class="add-form" id="add-task-form">
+      <div class="fgrid">
+        <div class="fg" style="grid-column:span 2">
+          <label>Task Name *</label>
+          <input type="text" id="nt-name" placeholder="e.g. Confirm venue deposit"/>
+        </div>
+        <div class="fg"><label>Details</label><input type="text" id="nt-details" placeholder="Short description"/></div>
+        <div class="fg"><label>Owner</label><input type="text" id="nt-owner" placeholder="Name or team"/></div>
+        <div class="fg"><label>ETA</label><input type="date" id="nt-eta"/></div>
+        <div class="fg"><label>Category</label>
+          <select id="nt-cat">
+            <option>Planning</option><option>Logistics</option><option>Content</option>
+            <option>Communications</option><option>Marketing</option><option>Sponsorship</option>
+            <option>Finance</option><option>Tech</option><option>Other</option>
+          </select>
+        </div>
+        <div class="fg"><label>Status</label>
+          <select id="nt-status">
+            <option>Not Started</option><option>In Progress</option>
+            <option>Completed</option><option>Blocked</option>
+          </select>
+        </div>
+        <div class="fg" style="grid-column:span 2">
+          <label>Comments</label><input type="text" id="nt-comments" placeholder="Notes..."/>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-yellow" onclick="addTask()">Add Task</button>
+        <button class="btn btn-gray" onclick="toggleAddTask()">Cancel</button>
+      </div>
+    </div>
+
+    <div class="filters" id="task-filters">
+      <button class="fbtn active" onclick="filterTasks('All',this)">All</button>
+      <button class="fbtn" onclick="filterTasks('Planning',this)">Planning</button>
+      <button class="fbtn" onclick="filterTasks('Logistics',this)">Logistics</button>
+      <button class="fbtn" onclick="filterTasks('Content',this)">Content</button>
+      <button class="fbtn" onclick="filterTasks('Communications',this)">Comms</button>
+      <button class="fbtn" onclick="filterTasks('Marketing',this)">Marketing</button>
+      <button class="fbtn" onclick="filterTasks('Sponsorship',this)">Sponsorship</button>
+      <button class="fbtn" onclick="filterTasks('Finance',this)">Finance</button>
+      <button class="fbtn" onclick="filterTasks('Tech',this)">Tech</button>
+      <input type="text" class="search-inp" placeholder="🔍  Search…" oninput="searchTasks(this.value)"/>
+    </div>
+
+    <div class="table-wrap table-scroll">
+      <table>
+        <thead><tr><th>Task</th><th>Category</th><th>Owner</th><th>ETA</th><th>Status</th><th></th></tr></thead>
+        <tbody id="tasks-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── BUDGET ── -->
+  <div class="page" id="page-budget">
+    <div class="page-header">
+      <div>
+        <h1>Budget Tracker 💰</h1>
+        <p>All figures in KES · Click estimated or actual to edit inline</p>
+      </div>
+      <button class="btn btn-yellow" onclick="toggleAddBudget()">＋ Add Item</button>
+    </div>
+
+    <div class="add-form" id="add-budget-form">
+      <div class="fgrid">
+        <div class="fg"><label>Item Name *</label><input type="text" id="nb-item" placeholder="e.g. Venue deposit"/></div>
+        <div class="fg"><label>Category</label>
+          <select id="nb-cat">
+            <option>Venue</option><option>Catering</option><option>AV & Tech</option>
+            <option>Marketing</option><option>Speakers</option><option>Printing</option>
+            <option>Staffing</option><option>Contingency</option><option>Other</option>
+          </select>
+        </div>
+        <div class="fg"><label>Estimated (KES)</label><input type="number" id="nb-est" placeholder="0"/></div>
+        <div class="fg"><label>Actual (KES)</label><input type="number" id="nb-actual" placeholder="0"/></div>
+        <div class="fg"><label>Status</label>
+          <select id="nb-status"><option>Pending</option><option>Approved</option><option>Paid</option></select>
+        </div>
+        <div class="fg"><label>Notes</label><input type="text" id="nb-notes" placeholder="Vendor, notes…"/></div>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-yellow" onclick="addBudget()">Add Item</button>
+        <button class="btn btn-gray" onclick="toggleAddBudget()">Cancel</button>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card c-teal">
+        <span class="s-icon">📊</span>
+        <div class="slabel">Total Estimated</div>
+        <div class="sval" id="b-est">—</div>
+        <div class="ssub">KES</div>
+      </div>
+      <div class="stat-card c-yellow">
+        <span class="s-icon">💳</span>
+        <div class="slabel">Total Actual</div>
+        <div class="sval" id="b-actual">—</div>
+        <div class="ssub" id="b-pct">—% spent</div>
+        <div class="progress-bar"><div class="progress-fill" id="b-bar" style="background:var(--teal)"></div></div>
+      </div>
+      <div class="stat-card c-teal">
+        <span class="s-icon">🏦</span>
+        <div class="slabel">Remaining</div>
+        <div class="sval" id="b-rem">—</div>
+        <div class="ssub">KES</div>
+      </div>
+      <div class="stat-card c-black">
+        <span class="s-icon">⏳</span>
+        <div class="slabel">Pending Approval</div>
+        <div class="sval" id="b-pend">—</div>
+        <div class="ssub">items</div>
+      </div>
+    </div>
+
+    <div class="budget-grid">
+      <div class="bchart">
+        <h3>Spend by Category (Estimated KES)</h3>
+        <div class="bar-chart" id="budget-bars"></div>
+      </div>
+      <div class="bchart">
+        <h3>Budget Breakdown</h3>
+        <div class="donut-wrap">
+          <svg id="donut-svg" width="155" height="155" viewBox="0 0 155 155"></svg>
+          <div class="donut-center">
+            <div class="da" id="donut-total">—</div>
+            <div class="dl">KES total</div>
+          </div>
+        </div>
+        <div class="legend" id="donut-legend"></div>
+      </div>
+    </div>
+
+    <div class="table-wrap table-scroll">
+      <table>
+        <thead><tr><th>Item</th><th>Category</th><th>Estimated (KES)</th><th>Actual (KES)</th><th>Variance</th><th>Status</th><th>Notes</th><th></th></tr></thead>
+        <tbody id="budget-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+
+<div class="toast" id="toast"></div>
+
+<!-- EDIT MODAL -->
+<div class="modal-overlay" id="edit-modal">
+  <div class="modal">
+    <h3>✏️ Edit Task</h3>
+    <div class="fgrid">
+      <div class="fg" style="grid-column:span 3"><label>Task Name</label><input type="text" id="e-name"/></div>
+      <div class="fg" style="grid-column:span 3"><label>Details</label><input type="text" id="e-details"/></div>
+      <div class="fg"><label>Owner</label><input type="text" id="e-owner"/></div>
+      <div class="fg"><label>ETA</label><input type="date" id="e-eta"/></div>
+      <div class="fg"><label>Category</label>
+        <select id="e-cat">
+          <option>Planning</option><option>Logistics</option><option>Content</option>
+          <option>Communications</option><option>Marketing</option><option>Sponsorship</option>
+          <option>Finance</option><option>Tech</option><option>Other</option>
+        </select>
+      </div>
+      <div class="fg"><label>Status</label>
+        <select id="e-status">
+          <option>Not Started</option><option>In Progress</option>
+          <option>Completed</option><option>Blocked</option>
+        </select>
+      </div>
+      <div class="fg" style="grid-column:span 2"><label>Comments</label><textarea id="e-comments"></textarea></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-error btn-sm" onclick="delEditing()">🗑 Delete</button>
+      <button class="btn btn-gray" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-teal" onclick="saveEdit()">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════
+// DATA
+// ════════════════════════════
+const SK = { tasks:'gfcs_ke_tasks_v3', budget:'gfcs_ke_budget_v3', date:'gfcs_ke_date_v3' };
+
+// Budget category colours — ONLY yellow/teal/black tints
+const BCAT_COLORS = {
+  'Venue':        '#F2CC38',
+  'Catering':     '#00A082',
+  'AV & Tech':    '#007A63',
+  'Marketing':    '#C4A200',
+  'Speakers':     '#F5E068',
+  'Printing':     '#A8DDD5',
+  'Staffing':     '#00A082',
+  'Contingency':  '#8A6E00',
+  'Other':        '#BBBBBB'
+};
+
+const DEFAULT_TASKS = [
+  {id:'t1', task:'Confirm Event Venue', details:'Shortlist and book venue in Nairobi. Target 300 pax.', owner:'Project Lead', eta:'2026-07-15', status:'In Progress', comments:'Options: Trademark Hotel, Radisson Blu, Kempinski Villa Rosa', category:'Logistics'},
+  {id:'t2', task:'Finalize Event Date', details:'Lock in date within the 1–3 month window', owner:'Project Lead', eta:'2026-07-10', status:'In Progress', comments:'', category:'Planning'},
+  {id:'t3', task:'Define Attendance Split', details:'Target 100–300: Glovo team, partners, brands, prospects, media', owner:'Project Lead', eta:'2026-07-10', status:'Not Started', comments:'NG model: 40 team, 20 Qcom, 20 brands, 40 priority leads, 200 food', category:'Planning'},
+  {id:'t4', task:'Finalize Event Tagline & Branding', details:'Name, logo, visual theme for Kenya edition', owner:'Marketing', eta:'2026-07-20', status:'Not Started', comments:'', category:'Marketing'},
+  {id:'t5', task:'Create Event Ticketing / RSVP Site', details:'Set up registration site (tix.africa or Eventbrite)', owner:'Marketing / Tech', eta:'2026-07-25', status:'Not Started', comments:'Nigeria used tix.africa', category:'Tech'},
+  {id:'t6', task:'Finalize Event Agenda', details:'Define panel topics, session order, timings', owner:'Planning Committee', eta:'2026-07-28', status:'Not Started', comments:'NG: 4 panels + keynote + awards in ~5 hrs', category:'Content'},
+  {id:'t7', task:'Identify & Invite Keynote Speaker', details:'Glovo Kenya GM or Regional Director', owner:'Project Lead', eta:'2026-07-20', status:'Not Started', comments:'', category:'Content'},
+  {id:'t8', task:'Identify Panel Topics & Moderators', details:'Adapt NG panel topics for Kenya market', owner:'Content Lead', eta:'2026-07-25', status:'Not Started', comments:'', category:'Content'},
+  {id:'t9', task:'Draft & Send Panelist Invitations', details:'Design formal invite, send to confirmed panelists', owner:'Panel Coordinators', eta:'2026-08-01', status:'Not Started', comments:'', category:'Communications'},
+  {id:'t10', task:'Identify Event Sponsors', details:'Map top partners & industry players for sponsorship', owner:'Commercial Lead', eta:'2026-07-25', status:'Not Started', comments:'NG sponsors: Paga/Doroki, Coca-Cola, SageLife, Koolboks', category:'Sponsorship'},
+  {id:'t11', task:'Send Sponsor Proposals & Close Deals', details:'Send decks and confirm booth activations', owner:'Commercial Lead', eta:'2026-08-05', status:'Not Started', comments:'', category:'Sponsorship'},
+  {id:'t12', task:'Design Partner Invitations', details:'Branded invites for food / Qcom partners', owner:'Marketing', eta:'2026-08-01', status:'Not Started', comments:'', category:'Communications'},
+  {id:'t13', task:'Invite Food & Restaurant Partners', details:'All AMs send invites to their portfolio', owner:'Account Management', eta:'2026-08-10', status:'Not Started', comments:'', category:'Communications'},
+  {id:'t14', task:'Invite Q-Commerce Partners', details:'Supermarkets, pharmacies, retail partners', owner:'Qcom Lead', eta:'2026-08-10', status:'Not Started', comments:'', category:'Communications'},
+  {id:'t15', task:'Invite Brand / Ads Stakeholders', details:'FMCG brands, media agencies, digital players in Kenya', owner:'Brands Ads Lead', eta:'2026-08-10', status:'Not Started', comments:'', category:'Communications'},
+  {id:'t16', task:'Invite Government & Regulatory Stakeholders', details:'Relevant local / national Kenyan bodies', owner:'GR Lead', eta:'2026-08-05', status:'Not Started', comments:'', category:'Communications'},
+  {id:'t17', task:'Draft Countdown Comms — Partners', details:'3-part email: 2 weeks, 1 week, 1 day before', owner:'Marketing / AMs', eta:'2026-08-15', status:'Not Started', comments:'', category:'Communications'},
+  {id:'t18', task:'Draft Countdown Comms — Panelists', details:'Share panel questions 1 week in advance', owner:'Content Lead', eta:'2026-08-15', status:'Not Started', comments:'', category:'Communications'},
+  {id:'t19', task:'Create Master Budget Document', details:'Full budget: venue, AV, catering, marketing, souvenirs', owner:'Project Lead', eta:'2026-07-15', status:'In Progress', comments:'', category:'Finance'},
+  {id:'t20', task:'Social Media & PR Plan', details:'Pre, during, post-event content calendar', owner:'Marketing', eta:'2026-08-01', status:'Not Started', comments:'', category:'Marketing'},
+  {id:'t21', task:'Produce Intro & Recap Videos', details:'Event opener, testimonials, Glovo Around the World segment', owner:'Marketing / Creative', eta:'2026-08-20', status:'Not Started', comments:'', category:'Content'},
+  {id:'t22', task:'Define Awards Categories & Nominees', details:'Food and Qcom categories — decide nomination process', owner:'Commercial Lead', eta:'2026-08-15', status:'Not Started', comments:'NG: 2 categories — Food and Qcom', category:'Content'},
+  {id:'t23', task:'Print Awards / Trophies', details:'Brief and commission print vendor', owner:'Operations', eta:'2026-08-25', status:'Not Started', comments:'', category:'Logistics'},
+  {id:'t24', task:'Organize Glovo Exhibition Booths', details:'Partner Ops, Sales, AM, Qcom booths', owner:'Operations', eta:'2026-08-10', status:'Not Started', comments:'', category:'Logistics'},
+  {id:'t25', task:'Confirm Event Day Team Split', details:'9 teams: Media/PR, Backstage, Speaker Mgmt, Welfare, Registration, Q&A, Exhibition, Tech, Awards', owner:'Project Lead', eta:'2026-08-20', status:'Not Started', comments:'', category:'Planning'},
+  {id:'t26', task:'Source Souvenirs for Speakers & VIPs', details:'Branded gifts for panelists and special guests', owner:'Operations', eta:'2026-08-20', status:'Not Started', comments:'', category:'Logistics'},
+  {id:'t27', task:'Invite Media & Influencers', details:'Lifestyle, business media, food/tech influencers in Nairobi', owner:'PR Lead', eta:'2026-08-10', status:'Not Started', comments:'', category:'Marketing'},
+  {id:'t28', task:'Finalize AV & Tech Setup', details:'Screens, mics, slides, live streaming if applicable', owner:'Tech Lead', eta:'2026-08-25', status:'Not Started', comments:'', category:'Tech'},
+  {id:'t29', task:'Catering & Refreshments Plan', details:'Lunch, snacks, drinks for 100–300 attendees', owner:'Operations', eta:'2026-08-20', status:'Not Started', comments:'', category:'Logistics'},
+  {id:'t30', task:'Post-Event Follow-Up Comms', details:'Thank you emails to panelists, partners, attendees + recap', owner:'Marketing / AMs', eta:'', status:'Not Started', comments:'', category:'Communications'},
+];
+
+const DEFAULT_BUDGET = [
+  {id:'b1',  category:'Venue',       item:'Venue rental (full day)',           estimated:500000, actual:0, status:'Pending', notes:'Shortlisting 3 options'},
+  {id:'b2',  category:'Venue',       item:'Venue dressing / décor',            estimated:150000, actual:0, status:'Pending', notes:''},
+  {id:'b3',  category:'Catering',    item:'Lunch for 300 pax',                 estimated:450000, actual:0, status:'Pending', notes:'KES 1,500 per head est.'},
+  {id:'b4',  category:'Catering',    item:'Tea break / snacks ×2',             estimated:120000, actual:0, status:'Pending', notes:''},
+  {id:'b5',  category:'Catering',    item:'Drinks / bar',                      estimated:80000,  actual:0, status:'Pending', notes:''},
+  {id:'b6',  category:'AV & Tech',   item:'AV setup (screens, mics, lighting)',estimated:300000, actual:0, status:'Pending', notes:''},
+  {id:'b7',  category:'AV & Tech',   item:'Live streaming / recording',        estimated:80000,  actual:0, status:'Pending', notes:''},
+  {id:'b8',  category:'AV & Tech',   item:'Event photography',                 estimated:60000,  actual:0, status:'Pending', notes:''},
+  {id:'b9',  category:'Marketing',   item:'Design & branding (invites, banners)',estimated:100000,actual:0, status:'Pending', notes:''},
+  {id:'b10', category:'Marketing',   item:'Social media ads / boosting',       estimated:80000,  actual:0, status:'Pending', notes:''},
+  {id:'b11', category:'Marketing',   item:'Influencer / media partnerships',   estimated:100000, actual:0, status:'Pending', notes:''},
+  {id:'b12', category:'Printing',    item:'Banners, roll-ups, signage',        estimated:80000,  actual:0, status:'Pending', notes:''},
+  {id:'b13', category:'Printing',    item:'Programs, name badges, lanyards',   estimated:40000,  actual:0, status:'Pending', notes:''},
+  {id:'b14', category:'Printing',    item:'Awards / trophies',                 estimated:80000,  actual:0, status:'Pending', notes:'~10 awards'},
+  {id:'b15', category:'Speakers',    item:'Speaker transport & accommodation', estimated:100000, actual:0, status:'Pending', notes:'If out-of-town'},
+  {id:'b16', category:'Speakers',    item:'Speaker gifts / souvenirs',         estimated:60000,  actual:0, status:'Pending', notes:''},
+  {id:'b17', category:'Staffing',    item:'Event coordination / ushers',       estimated:80000,  actual:0, status:'Pending', notes:''},
+  {id:'b18', category:'Staffing',    item:'MC fee',                            estimated:80000,  actual:0, status:'Pending', notes:''},
+  {id:'b19', category:'Contingency', item:'Contingency (10%)',                 estimated:196000, actual:0, status:'Pending', notes:'10% of total'},
+  {id:'b20', category:'Other',       item:'Transport / logistics on the day',  estimated:50000,  actual:0, status:'Pending', notes:''},
+];
+
+// ════════════════════════════
+// STATE
+// ════════════════════════════
+let tasks  = JSON.parse(localStorage.getItem(SK.tasks)  || 'null') || DEFAULT_TASKS;
+let budget = JSON.parse(localStorage.getItem(SK.budget) || 'null') || DEFAULT_BUDGET;
+let tFilter = 'All', tSearch = '', editId = null;
+
+function save() {
+  localStorage.setItem(SK.tasks,  JSON.stringify(tasks));
+  localStorage.setItem(SK.budget, JSON.stringify(budget));
+}
+
+// ════════════════════════════
+// NAVIGATION
+// ════════════════════════════
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelector(`[onclick="showPage('${id}')"]`).classList.add('active');
+  if (id === 'tasks')    renderTasks();
+  if (id === 'budget')   renderBudget();
+  if (id === 'overview') renderOverview();
+}
+
+// ════════════════════════════
+// COUNTDOWN
+// ════════════════════════════
+function updateCountdown() {
+  const stored = localStorage.getItem(SK.date);
+  if (stored) {
+    document.getElementById('event-date').value = stored;
+    const diff = Math.ceil((new Date(stored) - new Date()) / 86400000);
+    document.getElementById('countdown-days').textContent = diff > 0 ? diff : '🎉';
+  }
+}
+function saveDate(v) { localStorage.setItem(SK.date, v); updateCountdown(); }
+
+// ════════════════════════════
+// HELPERS
+// ════════════════════════════
+function sc(s) {
+  if (s === 'Completed')  return 's-done';
+  if (s === 'In Progress') return 's-prog';
+  if (s === 'Blocked')    return 's-block';
+  return 's-none';
+}
+function kes(n) {
+  if (n >= 1000000) return (n/1000000).toFixed(1) + 'M';
+  if (n >= 1000)    return (n/1000).toFixed(0) + 'K';
+  return String(n);
+}
+function overdue(eta) { return eta && new Date(eta) < new Date(); }
+
+function badge(s) {
+  return `<span class="sbadge ${sc(s)}"><span class="dot"></span>${s}</span>`;
+}
+
+// ════════════════════════════
+// OVERVIEW
+// ════════════════════════════
+function renderOverview() {
+  const total    = tasks.length;
+  const done     = tasks.filter(t => t.status === 'Completed').length;
+  const inprog   = tasks.filter(t => t.status === 'In Progress').length;
+  const blocked  = tasks.filter(t => t.status === 'Blocked').length;
+  const ns       = tasks.filter(t => t.status === 'Not Started').length;
+  const pct      = total ? Math.round(done / total * 100) : 0;
+
+  document.getElementById('ov-total').textContent   = total;
+  document.getElementById('ov-done').textContent    = done;
+  document.getElementById('ov-prog-n').textContent  = inprog;
+  document.getElementById('ov-blocked').textContent = blocked;
+  document.getElementById('ov-ns').textContent      = ns;
+  document.getElementById('ov-sub').textContent     = pct + '% complete';
+  document.getElementById('ov-prog').style.width    = pct + '%';
+
+  const tEst  = budget.reduce((a,b) => a + (b.estimated||0), 0);
+  const tAct  = budget.reduce((a,b) => a + (b.actual||0), 0);
+  const spct  = tEst ? Math.round(tAct / tEst * 100) : 0;
+  document.getElementById('ov-bud-total').textContent = kes(tEst);
+  document.getElementById('ov-bud-spent').textContent = kes(tAct);
+  document.getElementById('ov-bud-rem').textContent   = kes(tEst - tAct);
+  document.getElementById('ov-bud-pct').textContent   = spct + '% of budget';
+  document.getElementById('ov-spend-bar').style.width = Math.min(spct, 100) + '%';
+  document.getElementById('badge-tasks').textContent  = done + '/' + total;
+  document.getElementById('badge-budget').textContent = kes(tEst);
+
+  const mini = t => `<div class="task-mini">
+    ${badge(t.status)}
+    <span class="tmn">${t.task}</span>
+    <span class="tmo">${t.owner||''}</span>
+  </div>`;
+
+  const empty = msg => `<p style="color:var(--gray-3);font-size:11px;padding:8px 0;font-weight:700">${msg}</p>`;
+
+  document.getElementById('list-prog').innerHTML  = tasks.filter(t=>t.status==='In Progress').slice(0,5).map(mini).join('') || empty('None in progress');
+  document.getElementById('list-ns').innerHTML    = tasks.filter(t=>t.status==='Not Started').slice(0,5).map(mini).join('') || empty('All tasks started!');
+  document.getElementById('list-done').innerHTML  = tasks.filter(t=>t.status==='Completed').slice(0,5).map(mini).join('')  || empty('No completed tasks yet');
+  document.getElementById('list-block').innerHTML = tasks.filter(t=>t.status==='Blocked').map(mini).join('')               || empty('✓ No blockers — great!');
+}
+
+// ════════════════════════════
+// TASKS
+// ════════════════════════════
+function renderTasks() {
+  let filtered = tasks;
+  if (tFilter !== 'All') filtered = filtered.filter(t => t.category === tFilter);
+  if (tSearch) filtered = filtered.filter(t =>
+    t.task.toLowerCase().includes(tSearch) ||
+    (t.owner||'').toLowerCase().includes(tSearch) ||
+    (t.details||'').toLowerCase().includes(tSearch)
+  );
+  const tbody = document.getElementById('tasks-body');
+  if (!filtered.length) {
+    tbody.innerHTML = `<tr><td colspan="6"><div class="empty"><div class="ei">📭</div><p>No tasks found</p></div></td></tr>`;
+    return;
+  }
+  tbody.innerHTML = filtered.map(t => {
+    const ov = overdue(t.eta) && t.status !== 'Completed';
+    return `<tr onclick="openModal('${t.id}')">
+      <td class="td-task">${t.task}${t.details ? `<div class="td-det">${t.details}</div>` : ''}</td>
+      <td><span class="cat-tag cat-${t.category}">${t.category}</span></td>
+      <td class="td-own">${t.owner||'—'}</td>
+      <td class="td-eta${ov?' overdue':''}">${t.eta||'—'}${ov?' ⚠️':''}</td>
+      <td>
+        <select class="isel ${sc(t.status)}" onchange="qStatus('${t.id}',this.value)" onclick="event.stopPropagation()">
+          <option ${t.status==='Not Started'?'selected':''}>Not Started</option>
+          <option ${t.status==='In Progress'?'selected':''}>In Progress</option>
+          <option ${t.status==='Completed'?'selected':''}>Completed</option>
+          <option ${t.status==='Blocked'?'selected':''}>Blocked</option>
+        </select>
+      </td>
+      <td><button class="del-btn" onclick="delTask('${t.id}',event)">✕</button></td>
+    </tr>`;
+  }).join('');
+}
+
+function qStatus(id, v) {
+  const t = tasks.find(t => t.id === id);
+  if (t) { t.status = v; save(); renderTasks(); renderOverview(); toast('Status updated'); }
+}
+function filterTasks(cat, btn) {
+  tFilter = cat;
+  document.querySelectorAll('#task-filters .fbtn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderTasks();
+}
+function searchTasks(v) { tSearch = v.toLowerCase(); renderTasks(); }
+function toggleAddTask() { document.getElementById('add-task-form').classList.toggle('open'); }
+function addTask() {
+  const name = document.getElementById('nt-name').value.trim();
+  if (!name) { alert('Task name required'); return; }
+  tasks.unshift({
+    id: 't'+Date.now(), task: name,
+    details:  document.getElementById('nt-details').value.trim(),
+    owner:    document.getElementById('nt-owner').value.trim(),
+    eta:      document.getElementById('nt-eta').value,
+    status:   document.getElementById('nt-status').value,
+    comments: document.getElementById('nt-comments').value.trim(),
+    category: document.getElementById('nt-cat').value,
+  });
+  save();
+  ['nt-name','nt-details','nt-owner','nt-comments'].forEach(id => document.getElementById(id).value='');
+  document.getElementById('nt-eta').value = '';
+  toggleAddTask(); renderTasks(); renderOverview(); toast('Task added ✓');
+}
+function delTask(id, e) {
+  e.stopPropagation();
+  if (!confirm('Delete this task?')) return;
+  tasks = tasks.filter(t => t.id !== id);
+  save(); renderTasks(); renderOverview(); toast('Task deleted');
+}
+
+// ════════════════════════════
+// EDIT MODAL
+// ════════════════════════════
+function openModal(id) {
+  editId = id;
+  const t = tasks.find(t => t.id === id); if (!t) return;
+  document.getElementById('e-name').value    = t.task;
+  document.getElementById('e-details').value = t.details||'';
+  document.getElementById('e-owner').value   = t.owner||'';
+  document.getElementById('e-eta').value     = t.eta||'';
+  document.getElementById('e-comments').value= t.comments||'';
+  document.getElementById('e-status').value  = t.status;
+  document.getElementById('e-cat').value     = t.category||'Planning';
+  document.getElementById('edit-modal').classList.add('open');
+}
+function closeModal() { document.getElementById('edit-modal').classList.remove('open'); editId = null; }
+function saveEdit() {
+  const t = tasks.find(t => t.id === editId); if (!t) return;
+  t.task     = document.getElementById('e-name').value;
+  t.details  = document.getElementById('e-details').value;
+  t.owner    = document.getElementById('e-owner').value;
+  t.eta      = document.getElementById('e-eta').value;
+  t.comments = document.getElementById('e-comments').value;
+  t.status   = document.getElementById('e-status').value;
+  t.category = document.getElementById('e-cat').value;
+  save(); closeModal(); renderTasks(); renderOverview(); toast('Saved ✓');
+}
+function delEditing() {
+  if (!confirm('Delete this task?')) return;
+  tasks = tasks.filter(t => t.id !== editId);
+  save(); closeModal(); renderTasks(); renderOverview(); toast('Deleted');
+}
+document.getElementById('edit-modal').addEventListener('click', function(e) { if (e.target===this) closeModal(); });
+
+// ════════════════════════════
+// BUDGET
+// ════════════════════════════
+function renderBudget() {
+  const tEst  = budget.reduce((a,b) => a+(b.estimated||0), 0);
+  const tAct  = budget.reduce((a,b) => a+(b.actual||0), 0);
+  const pct   = tEst ? Math.round(tAct/tEst*100) : 0;
+  const pend  = budget.filter(b => b.status==='Pending').length;
+
+  document.getElementById('b-est').textContent    = kes(tEst);
+  document.getElementById('b-actual').textContent = kes(tAct);
+  document.getElementById('b-rem').textContent    = kes(tEst-tAct);
+  document.getElementById('b-pend').textContent   = pend;
+  document.getElementById('b-pct').textContent    = pct+'% spent';
+  document.getElementById('b-bar').style.width    = Math.min(pct,100)+'%';
+
+  // Bar chart
+  const cats = {};
+  budget.forEach(b => { cats[b.category] = (cats[b.category]||0) + (b.estimated||0); });
+  const maxC = Math.max(...Object.values(cats));
+  document.getElementById('budget-bars').innerHTML = Object.entries(cats)
+    .sort((a,b) => b[1]-a[1])
+    .map(([cat,val]) => `
+      <div>
+        <div class="brow-head">
+          <span class="bcat">${cat}</span>
+          <span class="bval">KES ${val.toLocaleString()}</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:${Math.round(val/maxC*100)}%;background:${BCAT_COLORS[cat]||'#BBBBBB'}"></div>
+        </div>
+      </div>`).join('');
+
+  renderDonut(cats, tEst);
+  document.getElementById('donut-total').textContent = kes(tEst);
+
+  // Table
+  const inStyle = 'background:var(--gray-bg);border:1.5px solid var(--gray-5);border-radius:7px;padding:5px 8px;font-weight:700;font-family:Montserrat,sans-serif;font-size:12px;color:var(--black);outline:none;width:110px';
+  const bsc = s => s==='Paid'?'s-done':s==='Approved'?'s-prog':'s-none';
+
+  document.getElementById('budget-body').innerHTML = budget.map(b => {
+    const variance = (b.actual||0) - (b.estimated||0);
+    const vcol = variance > 0 ? 'var(--error)' : variance < 0 ? 'var(--teal-dark)' : 'var(--gray-3)';
+    return `<tr>
+      <td style="font-weight:700">${b.item}</td>
+      <td><span class="cat-tag" style="background:${BCAT_COLORS[b.category]||'#eee'}22;color:${BCAT_COLORS[b.category]||'#888'}">${b.category}</span></td>
+      <td><input type="number" value="${b.estimated}" style="${inStyle}" onchange="updBudget('${b.id}','estimated',this.value)"/></td>
+      <td><input type="number" value="${b.actual}" style="${inStyle}" onchange="updBudget('${b.id}','actual',this.value)"/></td>
+      <td style="color:${vcol};font-weight:800;font-size:12px">${variance>0?'+':''}${variance.toLocaleString()}</td>
+      <td><select class="isel ${bsc(b.status)}" onchange="updBudget('${b.id}','status',this.value)" onclick="event.stopPropagation()">
+        <option ${b.status==='Pending'?'selected':''}>Pending</option>
+        <option ${b.status==='Approved'?'selected':''}>Approved</option>
+        <option ${b.status==='Paid'?'selected':''}>Paid</option>
+      </select></td>
+      <td style="color:var(--gray-3);font-size:11px;font-weight:600">${b.notes||''}</td>
+      <td><button class="del-btn" onclick="delBudget('${b.id}',event)">✕</button></td>
+    </tr>`;
+  }).join('');
+}
+
+function updBudget(id, field, val) {
+  const b = budget.find(b => b.id===id); if (!b) return;
+  b[field] = (field==='estimated'||field==='actual') ? parseFloat(val)||0 : val;
+  save(); renderBudget(); renderOverview();
+}
+function delBudget(id, e) {
+  e.stopPropagation();
+  if (!confirm('Delete?')) return;
+  budget = budget.filter(b => b.id!==id);
+  save(); renderBudget(); renderOverview();
+}
+function toggleAddBudget() { document.getElementById('add-budget-form').classList.toggle('open'); }
+function addBudget() {
+  const item = document.getElementById('nb-item').value.trim();
+  if (!item) { alert('Item name required'); return; }
+  budget.push({
+    id: 'b'+Date.now(), item,
+    category:  document.getElementById('nb-cat').value,
+    estimated: parseFloat(document.getElementById('nb-est').value)||0,
+    actual:    parseFloat(document.getElementById('nb-actual').value)||0,
+    status:    document.getElementById('nb-status').value,
+    notes:     document.getElementById('nb-notes').value.trim(),
+  });
+  save();
+  ['nb-item','nb-est','nb-actual','nb-notes'].forEach(id => document.getElementById(id).value='');
+  toggleAddBudget(); renderBudget(); renderOverview(); toast('Budget item added ✓');
+}
+
+// ════════════════════════════
+// DONUT CHART
+// ════════════════════════════
+function renderDonut(cats, total) {
+  const svg    = document.getElementById('donut-svg');
+  const legend = document.getElementById('donut-legend');
+  const cx=77.5, cy=77.5, r=65, ir=40;
+  let angle = -Math.PI/2; let paths = '';
+  const entries = Object.entries(cats).sort((a,b) => b[1]-a[1]);
+  entries.forEach(([cat,val]) => {
+    if (!val) return;
+    const a  = (val/total)*Math.PI*2;
+    const ea = angle + a;
+    const x1=cx+r*Math.cos(angle),  y1=cy+r*Math.sin(angle);
+    const x2=cx+r*Math.cos(ea),     y2=cy+r*Math.sin(ea);
+    const ix1=cx+ir*Math.cos(ea),   iy1=cy+ir*Math.sin(ea);
+    const ix2=cx+ir*Math.cos(angle),iy2=cy+ir*Math.sin(angle);
+    const lg = a > Math.PI ? 1 : 0;
+    const col = BCAT_COLORS[cat]||'#BBBBBB';
+    paths += `<path d="M${x1},${y1} A${r},${r} 0 ${lg},1 ${x2},${y2} L${ix1},${iy1} A${ir},${ir} 0 ${lg},0 ${ix2},${iy2} Z" fill="${col}" stroke="#fff" stroke-width="2"/>`;
+    angle = ea;
+  });
+  svg.innerHTML = paths;
+  legend.innerHTML = entries.slice(0,6).map(([cat,val]) =>
+    `<div class="leg-item">
+      <div class="leg-dot" style="background:${BCAT_COLORS[cat]||'#BBBBBB'}"></div>
+      <span class="leg-name">${cat}</span>
+      <span class="leg-val">${kes(val)}</span>
+    </div>`).join('');
+}
+
+// ════════════════════════════
+// TOAST
+// ════════════════════════════
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 2500);
+}
+
+// ════════════════════════════
+// INIT
+// ════════════════════════════
+updateCountdown();
+renderOverview();
+</script>
+</body>
+</html>
